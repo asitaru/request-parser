@@ -9,7 +9,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(useragent.express())
 
 app.get('/', (req,res)=>{
-    res.send(req.ip);
+    res.send(req.headers['x-forwarded-for']);
     //res.send(req.useragent.source);
 });
 
